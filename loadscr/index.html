@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script> 
+
+
+        function loadScript(src, callback) {
+            let script = document.createElement('script');
+            script.src = src;
+            script.onload = () => callback(script);
+            document.head.append(script);
+          }
+        loadScript('script.js', function(script) {
+
+            alert(`Cool, the ${script.src} is loaded, let's load one more`);
+          
+            loadScript('script2.js', function(script) {
+              alert(`Cool, the second script is loaded`);
+            });
+          
+          });
+
+
+    </script>
+</body>
+</html>
